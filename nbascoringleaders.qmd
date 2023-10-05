@@ -1,0 +1,69 @@
+---
+title: "NBA scoring statistics"
+author: "Pat Rankin"
+format: html
+editor: visual
+execute: 
+  echo: false
+---
+
+## [Top NBA scorers during 2022-2023 season](https://www.basketball-reference.com/leagues/NBA_2023_totals.html#totals_stats::pts)
+
+\##![](images/pexels-chrofit-the-man-to-call-5756239-02.png){width="167"}![Basketball Dreams](images/image-1996203597.png){width="0.111083984375" height="129"}
+
+```{r}
+## Create data frame
+
+#| label: scoring
+
+players <- c("Jayson Tatum", "Joel Embiid", "Luka Doncic","Shay-Gilgeous Alexander","Giannis Antetokounmpo")
+points <- c(2225,2183,2138,2135,1959)
+bball <- data.frame(players,points)
+bball
+```
+
+```{r}
+#| label: load-packages
+#| message: false
+library(tidyverse)
+library(plotly)
+library(gt)
+```
+
+```{r}
+## Create data plot
+
+#|label: Scatter plot
+plot_ly(
+       data = bball,
+       x = points,
+       y = players,
+       type = "scatter",
+       mode= "markers"
+)       
+```
+
+# Top NBA Rebounders for the 2022-2023 season
+
+```{r}
+## Create data frame
+
+#| label: rebounding
+players <- c("Domantas Sabonis", "Nikola Vucevic","Nikola Jokic","Rudy Gobert","Jonas Valaciunas")
+trb <- c(973,903,817,814,804)
+rpg <- data.frame(players,trb)
+rpg
+```
+
+```{r}
+## Create barplot
+
+#|label: barplot
+
+plot_ly(
+  data=rpg,
+  x= trb,
+  y= players,
+  type= "bar"
+)
+```
