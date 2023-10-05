@@ -67,3 +67,5 @@ plot_ly(
   type= "bar"
 )
 ```
+
+## Summary
